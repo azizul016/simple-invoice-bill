@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.header {
+  padding: 30px;
+}
+.header__top {
+  display: flex;
+}
+.header__top .header__top__headeing1 {
+  font-size: 25px;
+  margin: 0 auto;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.header__middle {
+  width: 100%;
+  text-align: center;
+}
+.header__footer__span {
+  font-weight: bold;
+  padding-right: 10px;
+  margin-top: 5px;
+}
+.header__footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__bill__price {
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 20px;
+}
+.footer__bill {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+}
+.payment__left {
+  border: 1px solid;
+}
+.payment__left__top,
+.payment__left__bottom__text {
+  padding: 10px 20px;
+}
+.payment__left__bottom__emptyDiv {
+  height: 1px;
+  background: black;
+}
+.payment__middle {
+  /* margin-left: 16%; */
+  margin-top: 22vh;
+  border-top: 1px solid;
+  width: 11%;
+}
+.payment__right {
+  /* margin-left: 40%; */
+  font-weight: 700;
+  border-top: 1px solid;
+  width: 13%;
+}
+.footer__middle {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+}
+.empty_div_resiver,
+.empty_div_authorised {
+  height: 1px;
+  background-color: #000;
+}
+.footer__bottom {
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+  border-top: 1px solid #000000;
+}

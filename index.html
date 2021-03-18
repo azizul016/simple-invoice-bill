@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- //demo table -->
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__top">
+        <div class="header__top__img">
+          <img
+            width="55vw"
+            height="55vh"
+            src="data:image/png;base64,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"
+            alt=""
+          />
+        </div>
+        <div class="header__top__headeing1">
+          <h1>Computer solution inc.</h1>
+        </div>
+      </div>
+      <div class="header__middle">
+        <p>
+          Address: SHOP-612-613, LEVEL-06, ECS COMPUTER CITY, MULTIPLAN CENTER,
+          ELEPHANT ROAD, DHAKA-1205.
+        </p>
+        <p>
+          <span>Phone: 01712915845, 01971105910</span>
+          <span>Fax: HOTLINE: 01787799959</span
+          ><span>E-mail: csibanani2008@yahoo.com</span>
+          <span>Web: iBOS.com</span>
+        </p>
+      </div>
+      <div
+        class="invoice__bill"
+        style="
+          text-align: center;
+          margin-top: 7px;
+          font-size: 20px;
+          margin-bottom: 8px;
+        "
+      >
+        <h5>Invoice/Bill</h5>
+      </div>
+      <div class="header__footer">
+        <div class="header__footer__right">
+          <p>
+            <span class="header__footer__span">Sales Ouder No:</span>
+            SO-CSIGF-HEDAY- 2021-000394
+          </p>
+          <p>
+            <span class="header__footer__span">Invoice No:</span>
+            INV-CSI-2021-000401
+          </p>
+          <p><span class="header__footer__span">Buyer Name:</span> iBOS LTD.</p>
+          <p>
+            <span class="header__footer__span">Buyer Address: </span>
+            mohamadpur dhaka
+          </p>
+          <p>
+            <span class="header__footer__span">Mobile: </span>
+            +8801724676577
+          </p>
+        </div>
+        <div class="header__footer__left">
+          <p><span class="header__footer__span"> Date:</span> 20/01/2021</p>
+          <p><span class="header__footer__span">Time:</span> 1:52:00 PM</p>
+          <p><span class="header__footer__span">Sold By:</span> HEDAYET</p>
+          <p><span class="header__footer__span">Zone:</span></p>
+        </div>
+      </div>
+    </header>
+    <main style="padding: 20px">
+      <table>
+        <thead>
+          <tr>
+            <th>Sl. No.</th>
+            <th>Product Description</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mouse Logistic Usb B100</td>
+            <td>10 pcs</td>
+            <td>315.00</td>
+            <td>3150.00</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Mouse Logistic Usb B100</td>
+            <td>10 pcs</td>
+            <td>315.00</td>
+            <td>3150.00</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Mouse Logistic Usb B100</td>
+            <td>10 pcs</td>
+            <td>315.00</td>
+            <td>3150.00</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Mouse Logistic Usb B100</td>
+            <td>10 pcs</td>
+            <td>315.00</td>
+            <td>3150.00</td>
+          </tr>
+          <tFoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total Amount</td>
+                <td>3150.00</td>
+              </tr>
+          </tFoot>
+        </tbody>
+      </table>
+    </main>
+    <footer>
+      <div class="footer">
+        <h4 class="footer__bill__price">
+          in word: three thousand one hundred fifty only
+        </h4>
+        <div class="footer__bill">
+          <div class="payment__left">
+            <div class="payment__left__top">
+              <p>Previour Due</p>
+              <p>
+                Sales Amount: <span class="padding-left: 10px">3,150.00</span>
+              </p>
+              <p>
+                Collection:
+                <span class="padding-left: 10px">3,150.00</span>
+              </p>
+            </div>
+            <div class="payment__left__bottom">
+              <div class="payment__left__bottom__emptyDiv"></div>
+              <div class="payment__left__bottom__text">
+                <p>Net Outstanding</p>
+              </div>
+            </div>
+          </div>
+          <div class="payment__middle">
+            <div class="payment__middle__border"></div>
+            <div class="payment__middle__text">
+              <p>Total VAT : 0.00</p>
+            </div>
+          </div>
+          <div class="payment__right">
+            <div class="payment__right__emptyDiv"></div>
+            <div class="payment__right__text">
+              <p>Grand Total : 3150.00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__middle">
+        <div class="resiver__signature">
+          <div class="empty_div_resiver"></div>
+          <h5>Receiver's Signature</h5>
+        </div>
+        <div class="authorised__signature">
+          <div class="empty_div_authorised"></div>
+          <h5>Authorised Signature</h5>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__bottom__top">
+          <p>Printing Date: 20/02/2021</p>
+        </div>
+        <div class="footer__bottom__middle">
+          <p>Print Time: 2:01:13PM</p>
+        </div>
+        <div class="footer__bottom__bottom">
+          <p>Developed by: Databaz Software- 01911-676246</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
